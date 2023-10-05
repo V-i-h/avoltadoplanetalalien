@@ -63,11 +63,13 @@ CREATE TABLE competencia (
 insert into competencia(descricao,fk_verbo_id)values
 ('identificar as tags html para matar um inimigo','4'),('Classificar os principais seletores para avançar para o proximo nível','21'),('Esquematizar os scripts em javascript','8'),('Investigar os exceptions','28'),
 ('Localizar as conditions','5'),('Demonstrar os lopps','21'),('Produzir um array',38),('Reconhecer as functions','3'),('Descrever os objects','6')
-,('Elaborar um database','36');
+,('Elaborar um database','36'),('Produzir a nave','38');
 
 select * from competencia;
 
+truncate table competencia;
 
+delete from competencia where id= 11;
 CREATE TABLE etapa (
     id INT PRIMARY KEY auto_increment,
     instrucao LONGTEXT,
@@ -76,19 +78,20 @@ CREATE TABLE etapa (
     fk_verbo_id INT
 );
 
-insert into etapa (instrucao,ponto,tipo) values
-('O furão deve identificar as 10  tags html que estão escondidas no Planeta Alien','10','H'),
-('O furão deve Classificar os selectores que estão no caminho até a nave','20','C'),
-('O furão deve esquematizar os scripts que estão no computador do Lider dos aliens ','30','H'),
-('O furão deve Investigar os exceptions que estão escondidos no armario com junto com os materias de mutação genetica','40','A'),
-('O furão  deve passar pelos guardas e localizar os conditions que estão na sala de segurança','50','C'),
-('O furão  deve desativar o sistema de segurança da nave e impedir o ataque dos aliens  demonstrando o loop de bombas','60','A'),
-('O furão  deve produzir um array com as armas e tecnologias do planeta alien','70','C'),
-('Com o planeta alien em chamas o furão vai procurar seus  amigos na sala de experimento onde eles estão presos','80','H'),
-('Depois de derrotar  o Rei do planeta alien, o furão  deve descrever os objects para encontrar a chave da nave','90','C'),
-('O furão reune seu amigos e consegue fugir do planeta alien.Viajando pelo espaço ele encontra um planeta sem habitantes e elabora um database com o nome "Nova Terra"','100','A');
+insert into etapa (instrucao,ponto,tipo,fk_verbo_id) values
+('O furão deve identificar as 10  tags html que estão escondidas no Planeta Alien','10','H','4'),
+('O furão deve Classificar os selectores que estão no caminho até a nave','20','C','21'),
+('O furão deve esquematizar os scripts que estão no computador do Lider dos aliens ','30','H','8'),
+('O furão deve Investigar os exceptions que estão escondidos no armario com junto com os materias de mutação genetica','40','A','28'),
+('O furão  deve passar pelos guardas e localizar os conditions que estão na sala de segurança','50','C','5'),
+('O furão  deve desativar o sistema de segurança da nave e impedir o ataque dos aliens  demonstrando o loop de bombas','60','A','21'),
+('O furão  deve produzir um array com as armas e tecnologias do planeta alien','70','C','38'),
+('Com o planeta alien em chamas o furão vai procurar seus  amigos na sala de experimento onde eles estão presos','80','H','3'),
+('Depois de derrotar  o Rei do planeta alien, o furão  deve descrever os objects para encontrar a chave da nave','90','C','6'),
+('O furão reune seu amigos e consegue fugir do planeta alien.Viajando pelo espaço ele encontra um planeta sem habitantes e elabora um database com o nome "Nova Terra"','100','A','36');
+ 
 select * from etapa;
-
+truncate table etapa;
 
 SELECT bloom.id AS id_bloom, bloom.nome AS nome_bloom, verbo.id AS id_verbo, verbo.nomeVerbo
 FROM bloom
